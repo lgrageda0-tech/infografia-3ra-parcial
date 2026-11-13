@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f0ff">
+    <meta name="description" content="Un pequeño universo creado con cariño para Stella.">
+    <title>El Mundo de Stella ✦</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <canvas class="galaxy-canvas" id="galaxy" aria-label="Fondo de galaxia interactivo; arrastra para girarlo"></canvas>
+    <div class="page-glow page-glow-one" aria-hidden="true"></div>
+    <div class="page-glow page-glow-two" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="wordmark" href="#inicio" aria-label="El Mundo de Stella, inicio">
+        <span class="wordmark-star" aria-hidden="true">✦</span>
+        EL MUNDO DE STELLA
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="#rincon-animal">Animalitos</a>
+        <a href="#jardin">Jardín</a>
+        <a href="#historias">Historias</a>
+        <a href="#libro">Dedicatoria</a>
+      </nav>
+      <a class="header-note" href="#libro">hecho con cariño <span aria-hidden="true">♡</span></a>
+    </header>
+
+    <main>
+      <section class="hero section-shell" id="inicio" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> un lugarcito solo tuyo</p>
+          <h1 id="hero-title">Bienvenida a<br><span>tu universo, Stella.</span></h1>
+          <p class="hero-description">
+            Aquí caben tus mundos favoritos, tus canciones de siempre y todos esos
+            detalles que hacen que ser tú sea algo tan especial.
+          </p>
+          <a class="button button-dark" href="#rincon-animal">Pasear por mi mundo <span aria-hidden="true">↘</span></a>
+          <p class="hero-footnote"><span aria-hidden="true">✷</span> Un universo pequeño, hecho pensando en ti.</p>
+          <p class="galaxy-tip"><span aria-hidden="true">↻</span> Haz clic y arrastra el fondo para girar la galaxia</p>
+        </div>
+        <div class="hero-art" aria-label="Ilustración decorativa de estrellas y flores">
+          <span class="orbit orbit-one"></span>
+          <span class="orbit orbit-two"></span>
+          <span class="hero-sun">S</span>
+          <span class="hero-flower flower-one" aria-hidden="true">✿</span>
+          <span class="hero-flower flower-two" aria-hidden="true">✿</span>
+          <span class="hero-star star-one" aria-hidden="true">✦</span>
+          <span class="hero-star star-two" aria-hidden="true">✧</span>
+          <span class="hero-star star-three" aria-hidden="true">✦</span>
+          <span class="hero-animal animal-rabbit" aria-hidden="true">🐇</span>
+          <span class="hero-caption">tu brillo<br>es irrepetible</span>
+        </div>
+        <a class="scroll-cue" href="#rincon-animal"><span></span> sigue bajando</a>
+      </section>
+
+      <section class="section-shell animal-section" id="rincon-animal" aria-labelledby="animal-title">
+        <div class="section-heading">
+          <p class="eyebrow"><span class="section-number">01</span> compañía adorable</p>
+          <h2 id="animal-title">Pequeños seres,<br><em>alegrías gigantes.</em></h2>
+          <p>Un saludo de tus animalitos favoritos: cada uno trae una dosis distinta de ternura. Toca una ficha y mírala cobrar vida en 3D durante 10 segundos.</p>
+        </div>
+        <div class="animal-grid">
+          <button class="animal-card rabbit-card" type="button" data-animal="rabbit">
+            <span class="animal-emoji" aria-hidden="true">🐰</span>
+            <span class="card-kicker">saltitos de felicidad</span>
+            <span class="animal-title">Conejitos</span>
+            <span class="animal-description">Expertos en convertir cualquier día en uno más suave.</span>
+            <span class="card-doodle" aria-hidden="true">♡</span>
+          </button>
+          <button class="animal-card hamster-card" type="button" data-animal="hamster">
+            <span class="animal-emoji" aria-hidden="true">🐹</span>
+            <span class="card-kicker">mini bolita de energía</span>
+            <span class="animal-title">Hámsteres</span>
+            <span class="animal-description">Pequeñitos, curiosos y con planes importantes en su ruedita.</span>
+            <span class="card-doodle" aria-hidden="true">✿</span>
+          </button>
+          <button class="animal-card penguin-card" type="button" data-animal="penguin">
+            <span class="animal-emoji" aria-hidden="true">🐧</span>
+            <span class="card-kicker">elegancia con aletas</span>
+            <span class="animal-title">Pingüinos</span>
+            <span class="animal-description">Un recordatorio de que hasta el frío tiene su lado adorable.</span>
+            <span class="card-doodle" aria-hidden="true">✦</span>
+          </button>
+          <button class="animal-card sheep-card" type="button" data-animal="sheep">
+            <span class="animal-emoji" aria-hidden="true">🐑</span>
+            <span class="card-kicker">nubes que hacen beee</span>
+            <span class="animal-title">Ovejitas</span>
+            <span class="animal-description">La compañía perfecta para bajar el ritmo y soñar bonito.</span>
+            <span class="card-doodle" aria-hidden="true">☁</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="garden-section" id="jardin" aria-labelledby="garden-title">
+        <div class="section-shell garden-layout">
+          <div class="garden-art" aria-hidden="true">
+            <span class="garden-sun">☼</span>
+            <span class="tulip tulip-pink"><i></i><b></b></span>
+            <span class="tulip tulip-blue"><i></i><b></b></span>
+            <span class="tulip tulip-yellow"><i></i><b></b></span>
+            <span class="garden-scribble">crece<br>a tu ritmo</span>
+          </div>
+          <div class="garden-copy">
+            <p class="eyebrow"><span class="section-number">02</span> una pausa bonita</p>
+            <h2 id="garden-title">El jardín de<br><em>mil tulipanes.</em></h2>
+            <p>
+              Un rinconcito para respirar. Que cada flor te recuerde que puedes
+              crecer a tu manera, sin prisa y con mucho color.
+            </p>
+            <a class="button button-light" href="#tulip-game">Jugar a regar <span aria-hidden="true">↘</span></a>
+          </div>
+        </div>
+        <div class="tulip-game section-shell" id="tulip-game" aria-labelledby="tulip-game-title">
+          <div class="tulip-game-header">
+            <div>
+              <p class="eyebrow"><span aria-hidden="true">✿</span> minijuego de jardinería</p>
+              <h3 id="tulip-game-title">Cultiva y cosecha tus tulipanes</h3>
+            </div>
+            <div class="tulip-game-stats" aria-label="Marcador del juego">
+              <span>Cosechados <strong id="tulip-harvest-count">0</strong></span>
+              <span>Por etapa <strong>3 riegos</strong></span>
+            </div>
+          </div>
+          <p class="tulip-game-message" id="tulip-game-message" role="status" aria-live="polite">
+            Riega cada tulipán tres veces para iniciar cada etapa. Espera 0:30, 1:30, 3:00, 4:00 y 6:00 min para verlo crecer; una comida por etapa reduce la espera a la mitad. Corta la flor cuando esté madura para cosecharla.
+          </p>
+          <div class="tulip-playfield">
+            <article class="tulip-plot" data-tulip="rosa" data-growth="0">
+              <button class="plot-water" type="button" aria-label="Regar tulipán rosa, 0 de 3 riegos">
+                <span class="plot-plant" aria-hidden="true"><span class="plot-bloom"><i class="plot-petal petal-left"></i><i class="plot-petal petal-center"></i><i class="plot-petal petal-right"></i></span><span class="plot-stem"></span></span>
+                <span class="plot-soil" aria-hidden="true"></span><span class="plot-splash" aria-hidden="true">💧</span>
+                <span class="plot-name">Tulipán rosa</span>
+                <span class="plot-stage-name">Semilla</span>
+                <span class="plot-water-count">0/3 riegos</span>
+                <span class="plot-time-label">Listo para regar</span>
+                <span class="plot-timer-track" aria-hidden="true"><span></span></span>
+              </button>
+              <div class="plot-actions">
+                <button class="plot-action" type="button" data-action="feed" aria-label="Alimentar el tulipán rosa" disabled><span aria-hidden="true">🌿</span> Alimentar</button>
+                <button class="plot-action" type="button" data-action="harvest" aria-label="Cortar y cosechar el tulipán rosa" disabled><span aria-hidden="true">✂️</span> Cortar</button>
+              </div>
+            </article>
+            <article class="tulip-plot plot-blue" data-tulip="azul" data-growth="0">
+              <button class="plot-water" type="button" aria-label="Regar tulipán azul, 0 de 3 riegos">
+                <span class="plot-plant" aria-hidden="true"><span class="plot-bloom"><i class="plot-petal petal-left"></i><i class="plot-petal petal-center"></i><i class="plot-petal petal-right"></i></span><span class="plot-stem"></span></span>
+                <span class="plot-soil" aria-hidden="true"></span><span class="plot-splash" aria-hidden="true">💧</span>
+                <span class="plot-name">Tulipán azul</span>
+                <span class="plot-stage-name">Semilla</span>
+                <span class="plot-water-count">0/3 riegos</span>
+                <span class="plot-time-label">Listo para regar</span>
+                <span class="plot-timer-track" aria-hidden="true"><span></span></span>
+              </button>
+              <div class="plot-actions">
+                <button class="plot-action" type="button" data-action="feed" aria-label="Alimentar el tulipán azul" disabled><span aria-hidden="true">🌿</span> Alimentar</button>
+                <button class="plot-action" type="button" data-action="harvest" aria-label="Cortar y cosechar el tulipán azul" disabled><span aria-hidden="true">✂️</span> Cortar</button>
+              </div>
+            </article>
+            <article class="tulip-plot plot-gold" data-tulip="dorado" data-growth="0">
+              <button class="plot-water" type="button" aria-label="Regar tulipán dorado, 0 de 3 riegos">
+                <span class="plot-plant" aria-hidden="true"><span class="plot-bloom"><i class="plot-petal petal-left"></i><i class="plot-petal petal-center"></i><i class="plot-petal petal-right"></i></span><span class="plot-stem"></span></span>
+                <span class="plot-soil" aria-hidden="true"></span><span class="plot-splash" aria-hidden="true">💧</span>
+                <span class="plot-name">Tulipán dorado</span>
+                <span class="plot-stage-name">Semilla</span>
+                <span class="plot-water-count">0/3 riegos</span>
+                <span class="plot-time-label">Listo para regar</span>
+                <span class="plot-timer-track" aria-hidden="true"><span></span></span>
+              </button>
+              <div class="plot-actions">
+                <button class="plot-action" type="button" data-action="feed" aria-label="Alimentar el tulipán dorado" disabled><span aria-hidden="true">🌿</span> Alimentar</button>
+                <button class="plot-action" type="button" data-action="harvest" aria-label="Cortar y cosechar el tulipán dorado" disabled><span aria-hidden="true">✂️</span> Cortar</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell racing-section" id="formula-uno" aria-labelledby="racing-title">
+        <div class="racing-topline">
+          <p class="eyebrow"><span class="section-number">03</span> F1 · velocidad y emoción</p>
+          <span class="racing-stamp">STELLA<br>GRAND PRIX</span>
+        </div>
+        <div class="racing-layout">
+          <div>
+            <h2 id="racing-title">A toda velocidad<br><em>hacia tus sueños.</em></h2>
+            <p>Se apagan las luces, late fuerte el corazón y empieza una carrera que es solo tuya.</p>
+            <a class="button button-dark" href="#f1-game">Elegir pista y correr <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="track-art" aria-label="Ilustración decorativa de una pista de carreras">
+            <div class="track track-outer"></div>
+            <div class="track track-inner"></div>
+            <span class="race-car" aria-hidden="true">🏎️</span>
+            <span class="race-flag" aria-hidden="true">▧</span>
+            <span class="track-label">curva hacia<br>algo increíble</span>
+          </div>
+        </div>
+        <div class="f1-game" id="f1-game" aria-labelledby="f1-game-title">
+          <div class="f1-game-heading">
+            <div>
+              <p class="eyebrow"><span aria-hidden="true">🏁</span> minijuego de carreras</p>
+              <h3 id="f1-game-title">Stella Grand Prix</h3>
+            </div>
+            <p class="f1-game-instruction">Acelera, toma las curvas y esquiva o choca con los rivales. ¡Llega a más de 300 km/h!</p>
+          </div>
+          <div class="f1-track-picker" role="group" aria-label="Elige un circuito">
+            <button class="f1-track-option is-selected" type="button" data-track="stella" aria-pressed="true">
+              <span class="track-option-number">01</span><span class="track-option-name">Circuito Stella</span><span class="track-option-detail">Curvas floridas · 8 km</span>
+            </button>
+            <button class="f1-track-option" type="button" data-track="orbit" aria-pressed="false">
+              <span class="track-option-number">02</span><span class="track-option-name">Órbita Azul</span><span class="track-option-detail">Rectas veloces · 10 km</span>
+            </button>
+            <button class="f1-track-option" type="button" data-track="emerald" aria-pressed="false">
+              <span class="track-option-number">03</span><span class="track-option-name">Curvas Esmeralda</span><span class="track-option-detail">Desafío sinuoso · 9 km</span>
+            </button>
+          </div>
+          <div class="f1-race-layout">
+            <div class="f1-canvas-frame">
+              <canvas id="f1-canvas" aria-label="Vista de la pista de carreras. Usa las flechas o los controles para conducir.">
+                Tu navegador no permite mostrar la pista animada.
+              </canvas>
+              <span class="canvas-track-name" id="canvas-track-name">CIRCUITO STELLA</span>
+            </div>
+            <aside class="f1-hud" aria-label="Marcador de carrera">
+              <p class="hud-label">VELOCIDAD</p>
+              <div class="hud-speed"><span id="f1-speed">0</span><span>km/h</span></div>
+              <div class="speed-bar"><span id="f1-speed-bar"></span><i></i></div>
+              <div class="speed-scale"><span>0</span><span>300</span><span>360</span></div>
+              <p class="speed-cheer" id="speed-cheer">¡Acelera hasta la zona turbo!</p>
+              <div class="hud-divider"></div>
+              <div class="hud-distance"><span>RECORRIDO</span><strong id="f1-distance">0.0 / 8.0 km</strong></div>
+              <div class="race-progress"><span id="f1-progress"></span></div>
+              <div class="hud-distance"><span>RIVALES ESQUIVADOS</span><strong id="f1-overtakes">0</strong></div>
+            </aside>
+          </div>
+          <div class="f1-control-row">
+            <div class="f1-action-buttons">
+              <button class="button button-dark f1-start" id="f1-start" type="button">Empezar carrera <span aria-hidden="true">🏁</span></button>
+              <button class="button f1-pause" id="f1-pause" type="button" aria-pressed="false" disabled>Pausar ⏸</button>
+            </div>
+            <div class="f1-controls" role="group" aria-label="Controles para conducir">
+              <button class="f1-control steering" type="button" data-race-control="left" aria-label="Girar a la izquierda">←</button>
+              <button class="f1-control accelerator" type="button" data-race-control="accelerate" aria-label="Mantener para acelerar">▲<span>Acelerar</span></button>
+              <button class="f1-control steering" type="button" data-race-control="right" aria-label="Girar a la derecha">→</button>
+              <button class="f1-control brake" type="button" data-race-control="brake" aria-label="Mantener para frenar">▼<span>Frenar</span></button>
+            </div>
+          </div>
+          <p class="f1-race-message" id="f1-race-message" role="status" aria-live="polite">La carrera comenzará cuando pulses «Empezar carrera». Acelera con ↑ o W, gira con ← → o A/D, y frena con ↓ o S.</p>
+        </div>
+      </section>
+
+      <section class="stories-section" id="historias" aria-labelledby="stories-title">
+        <div class="section-shell">
+          <div class="section-heading stories-heading">
+            <p class="eyebrow"><span class="section-number">04</span> portales a otros mundos</p>
+            <h2 id="stories-title">Historias que<br><em>siempre te encuentran.</em></h2>
+            <p>Una pequeña estantería para visitar tus universos, cada uno con su propia magia.</p>
+          </div>
+          <div class="story-grid">
+            <details class="story-card story-red">
+              <summary class="story-front"><span class="story-symbol" aria-hidden="true">◉</span><span class="story-type">animación · humor</span><span class="story-title" role="heading" aria-level="3">Eddsworld</span><span class="story-arrow" aria-hidden="true">↗</span></summary>
+              <div class="story-card-back"><span class="story-back-type">EL MUNDO DE EDD</span><p>Una serie animada de humor absurdo que sigue las peripecias de Edd y sus amigos: episodios cortos, caos y muchas bromas.</p><button class="story-back-close" type="button" data-story-close>Cerrar ficha ↻</button></div>
+            </details>
+            <details class="story-card story-ink">
+              <summary class="story-front"><span class="story-symbol" aria-hidden="true">☠</span><span class="story-type">cómic · rarezas</span><span class="story-title" role="heading" aria-level="3">The Eltingville Club</span><span class="story-arrow" aria-hidden="true">↗</span></summary>
+              <div class="story-card-back"><span class="story-back-type">FANDOM Y RIVALIDADES</span><p>Cuatro fans apasionados por los cómics, el terror y la ciencia ficción convierten sus debates en rivalidades hilarantes.</p><button class="story-back-close" type="button" data-story-close>Cerrar ficha ↻</button></div>
+            </details>
+            <details class="story-card story-rose">
+              <summary class="story-front"><span class="story-symbol" aria-hidden="true">♡</span><span class="story-type">romance · crecer</span><span class="story-title" role="heading" aria-level="3">Heartstopper</span><span class="story-arrow" aria-hidden="true">↗</span></summary>
+              <div class="story-card-back"><span class="story-back-type">AMISTAD QUE FLORECE</span><p>Nick y Charlie construyen una amistad que se transforma en amor mientras descubren quiénes son y encuentran apoyo en su grupo.</p><button class="story-back-close" type="button" data-story-close>Cerrar ficha ↻</button></div>
+            </details>
+            <details class="story-card story-night">
+              <summary class="story-front"><span class="story-symbol" aria-hidden="true">月</span><span class="story-type">misterio · ingenio</span><span class="story-title" role="heading" aria-level="3">Death Note</span><span class="story-arrow" aria-hidden="true">↗</span></summary>
+              <div class="story-card-back"><span class="story-back-type">UN DUELO DE INGENIO</span><p>Light encuentra un cuaderno sobrenatural. Su plan para crear un mundo justo se convierte en un intenso dilema sobre poder y justicia.</p><button class="story-back-close" type="button" data-story-close>Cerrar ficha ↻</button></div>
+            </details>
+            <details class="story-card story-scarlet">
+              <summary class="story-front"><span class="story-symbol" aria-hidden="true">✹</span><span class="story-type">aventura · valentía</span><span class="story-title" role="heading" aria-level="3">Demon Slayer</span><span class="story-arrow" aria-hidden="true">↗</span></summary>
+              <div class="story-card-back"><span class="story-back-type">VALOR Y FAMILIA</span><p>Tanjiro emprende un viaje para ayudar a su hermana Nezuko y enfrentarse a demonios, armado de determinación y una espada.</p><button class="story-back-close" type="button" data-story-close>Cerrar ficha ↻</button></div>
+            </details>
+            <details class="story-card story-herbal">
+              <summary class="story-front"><span class="story-symbol" aria-hidden="true">❀</span><span class="story-type">misterio · botánica</span><span class="story-title" role="heading" aria-level="3">Los diarios de la boticaria</span><span class="story-arrow" aria-hidden="true">↗</span></summary>
+              <div class="story-card-back"><span class="story-back-type">MISTERIOS EN LA CORTE</span><p>Maomao, una joven experta en remedios, usa su curiosidad y sus conocimientos de plantas para resolver enigmas en el palacio.</p><button class="story-back-close" type="button" data-story-close>Cerrar ficha ↻</button></div>
+            </details>
+            <details class="story-card story-magic">
+              <summary class="story-front"><span class="story-symbol" aria-hidden="true">✦</span><span class="story-type">magia · amistad</span><span class="story-title" role="heading" aria-level="3">Harry Potter</span><span class="story-arrow" aria-hidden="true">↗</span></summary>
+              <div class="story-card-back"><span class="story-back-type">UNA ESCUELA DE MAGIA</span><p>Harry descubre Hogwarts y un mundo de hechizos, amistades y desafíos que lo acompañan mientras crece.</p><button class="story-back-close" type="button" data-story-close>Cerrar ficha ↻</button></div>
+            </details>
+            <details class="story-card story-sky">
+              <summary class="story-front"><span class="story-symbol" aria-hidden="true">✧</span><span class="story-type">aventura · imaginación</span><span class="story-title" role="heading" aria-level="3">Peter Pan</span><span class="story-arrow" aria-hidden="true">↗</span></summary>
+              <div class="story-card-back"><span class="story-back-type">RUMBO A NUNCA JAMÁS</span><p>Peter invita a Wendy y sus hermanos a una isla fantástica llena de vuelos, aventuras y encuentros con piratas.</p><button class="story-back-close" type="button" data-story-close>Cerrar ficha ↻</button></div>
+            </details>
+            <details class="story-card story-gold">
+              <summary class="story-front"><span class="story-symbol" aria-hidden="true">⚡</span><span class="story-type">mitos · heroísmo</span><span class="story-title" role="heading" aria-level="3">Hércules</span><span class="story-arrow" aria-hidden="true">↗</span></summary>
+              <div class="story-card-back"><span class="story-back-type">FUERZA CON CORAZÓN</span><p>Una aventura inspirada en el héroe de la mitología griega: descubrir la propia fuerza y ganarse un lugar entre los dioses.</p><button class="story-back-close" type="button" data-story-close>Cerrar ficha ↻</button></div>
+            </details>
+          </div>
+          <p class="stories-footnote"><span aria-hidden="true">✦</span> Toca una puerta para descubrir qué aventura guarda. Nueve mundos, un montón de magia.</p>
+        </div>
+      </section>
+
+      <section class="music-section" id="musica" aria-labelledby="music-title">
+        <div class="section-shell music-layout">
+          <div class="music-copy">
+            <p class="eyebrow"><span class="section-number">05</span> sube el volumen</p>
+            <h2 id="music-title">Dos bandas.<br><em>Un corazón enorme.</em></h2>
+            <p>Escucha canciones completas y elige otra al azar para cada aventura.</p>
+            <div class="music-tags"><span>Queen</span><span>The Beatles</span></div>
+          </div>
+          <div class="vinyl-stack" aria-hidden="true">
+            <div class="vinyl vinyl-one"><span>Q</span></div>
+            <div class="vinyl vinyl-two"><span>♫</span></div>
+            <span class="music-note note-one">♪</span>
+            <span class="music-note note-two">♫</span>
+            <span class="music-note note-three">♪</span>
+          </div>
+        </div>
+        <div class="section-shell music-player-grid" role="group" aria-label="Reproductores de Queen y The Beatles">
+          <article class="music-player-card">
+            <div class="music-player-heading">
+              <span class="music-player-mark queen-mark" aria-hidden="true">Q</span>
+              <div><span class="music-player-kicker">HIMNOS PARA CANTAR</span><h3>Queen</h3></div>
+            </div>
+            <div class="music-player-video">
+              <iframe
+                data-music-player="queen"
+                data-track-id="fJ9rUzIMcZQ"
+                title="Queen - Bohemian Rhapsody (video oficial)"
+                src="https://www.youtube-nocookie.com/embed/fJ9rUzIMcZQ?rel=0&amp;modestbranding=1&amp;playsinline=1"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+            <div class="music-player-actions">
+              <p class="music-track-status" data-track-status="queen" aria-live="polite">Canción completa: Bohemian Rhapsody</p>
+              <button class="music-random-button" type="button" data-random-track="queen" aria-label="Reproducir otra canción completa de Queen al azar">Otra canción completa ↻</button>
+            </div>
+            <p class="music-player-fallback">Vídeo oficial de <a href="https://www.youtube.com/watch?v=fJ9rUzIMcZQ" target="_blank" rel="noopener noreferrer">Queen en YouTube ↗</a></p>
+          </article>
+          <article class="music-player-card">
+            <div class="music-player-heading">
+              <span class="music-player-mark beatles-mark" aria-hidden="true">♫</span>
+              <div><span class="music-player-kicker">MELODÍAS INOLVIDABLES</span><h3>The Beatles</h3></div>
+            </div>
+            <div class="music-player-video">
+              <iframe
+                data-music-player="beatles"
+                data-track-id="xUNqsfFUwhY"
+                title="The Beatles - Here Comes The Sun (audio oficial)"
+                src="https://www.youtube-nocookie.com/embed/xUNqsfFUwhY?rel=0&amp;modestbranding=1&amp;playsinline=1"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+            <div class="music-player-actions">
+              <p class="music-track-status" data-track-status="beatles" aria-live="polite">Canción completa: Here Comes The Sun</p>
+              <button class="music-random-button" type="button" data-random-track="beatles" aria-label="Reproducir otra canción completa de The Beatles al azar">Otra canción completa ↻</button>
+            </div>
+            <p class="music-player-fallback">Vídeo oficial de <a href="https://www.youtube.com/watch?v=xUNqsfFUwhY" target="_blank" rel="noopener noreferrer">The Beatles en YouTube ↗</a></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell dedication-section" id="libro" aria-labelledby="dedication-title">
+        <div class="dedication-card">
+          <span class="dedication-sparkle sparkle-one" aria-hidden="true">✦</span>
+          <span class="dedication-sparkle sparkle-two" aria-hidden="true">✧</span>
+          <p class="eyebrow"><span class="section-number">06</span> una última página</p>
+          <h2 id="dedication-title">Un libro escrito<br><em>con cariño para ti.</em></h2>
+          <p class="dedication-message">
+            Stella, quise convertir este rincón en un libro para que puedas recorrerlo sin prisa.
+            Cada página guarda un pedacito de tus mundos favoritos y, sobre todo, una forma de decirte
+            cuánto te valoro y cuánto deseo que siempre te sientas querida.
+          </p>
+          <div class="color-palette" aria-label="Colores favoritos: azul, rosa, negro y verde">
+            <span class="color-chip"><i class="swatch swatch-blue"></i>azul</span>
+            <span class="color-chip"><i class="swatch swatch-pink"></i>rosa</span>
+            <span class="color-chip"><i class="swatch swatch-black"></i>negro</span>
+            <span class="color-chip"><i class="swatch swatch-green"></i>verde</span>
+          </div>
+          <button class="button button-dark" type="button" data-surprise="Este universo siempre tendrá un lugar reservado para ti. ♡">Abrir una sorpresa <span aria-hidden="true">♡</span></button>
+          <div class="dedication-signature">Con mucho cariño <span aria-hidden="true">♡</span></div>
+        </div>
+        <div class="dedication-book" aria-label="Libro digital dedicado a Stella">
+          <div class="book-cover">
+            <span class="book-cover-sparkle book-sparkle-one" aria-hidden="true">✦</span>
+            <span class="book-cover-sparkle book-sparkle-two" aria-hidden="true">✧</span>
+            <p class="book-cover-label">UNA HISTORIA HECHA PARA TI</p>
+            <h3>Stella,<br><em>todo lo bonito que eres</em></h3>
+            <p class="book-cover-description">Un libro para celebrar tus mundos, tu forma de ser y todo lo que mereces.</p>
+            <div class="book-cover-author">Con todo mi cariño <span aria-hidden="true">♡</span></div>
+            <span class="book-cover-count">2,000 páginas · 10 capítulos</span>
+          </div>
+          <div class="book-reader-shell">
+            <div class="book-reader-heading">
+              <div><span class="book-reader-kicker">TU LIBRO</span><strong>2,000 páginas para recorrer</strong></div>
+              <span class="book-scroll-hint">Desliza dentro de las páginas para seguir leyendo ↓</span>
+            </div>
+            <div class="book-pages" id="book-pages" role="region" aria-label="Libro dedicado a Stella: 2,000 páginas desplazables" tabindex="0"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="wordmark" href="#inicio"><span class="wordmark-star" aria-hidden="true">✦</span> EL MUNDO DE STELLA</a>
+      <p>hecho de estrellas, tulipanes y mucho cariño</p>
+      <a href="#inicio" class="back-to-top">volver arriba ↑</a>
+    </footer>
+    <div class="animal-stage" id="animal-stage" hidden>
+      <div class="animal-stage-backdrop" data-close-animal></div>
+      <section class="animal-stage-card" role="dialog" aria-modal="true" aria-labelledby="animal-stage-title" aria-describedby="animal-stage-description" tabindex="-1">
+        <button class="animal-stage-close" type="button" aria-label="Cerrar la animación">×</button>
+        <p class="eyebrow"><span aria-hidden="true">✦</span> un visitante especial</p>
+        <div class="animal-display" aria-hidden="true">
+          <span class="animal-orbit"></span>
+          <span class="animal-orbit animal-orbit-two"></span>
+          <span class="animal-model"><span id="animal-stage-emoji"></span></span>
+          <span class="animal-floor"></span>
+        </div>
+        <h2 id="animal-stage-title"></h2>
+        <p class="animal-stage-description" id="animal-stage-description"></p>
+        <p class="animal-countdown"><span id="animal-countdown">10</span> segundos para disfrutarlo</p>
+        <div class="animal-countdown-track" aria-hidden="true"><span id="animal-countdown-progress"></span></div>
+      </section>
+    </div>
+    <div class="surprise-toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
