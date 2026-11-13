@@ -6,7 +6,7 @@ const galaxyContext = galaxy?.getContext('2d');
 
 if (galaxy && galaxyContext) {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const state = { width: 0, height: 0, pixelRatio: 1, yaw: -0.5, pitch: 0.35, dragging: false, lastX: 0, lastY: 0 };
+  const state = { width: 0, height: 0, pixelRatio: 1, yaw: -0.5, pitch: 0.35, dragging: false, lastX: 0, lastY: 0, lastAnimationFrame: 0 };
   const randomBetween = (min, max) => min + Math.random() * (max - min);
   const stars = Array.from({ length: 720 }, () => {
     const radius = Math.sqrt(Math.random());
@@ -107,8 +107,11 @@ if (galaxy && galaxyContext) {
   };
 
   const animateGalaxy = (time) => {
-    if (!state.dragging && !reducedMotion.matches) state.yaw += 0.0007;
-    drawGalaxy(time);
+    if (time - state.lastAnimationFrame >= 1000 / 30) {
+      state.lastAnimationFrame = time;
+      if (!state.dragging && !reducedMotion.matches) state.yaw += 0.0007;
+      drawGalaxy(time);
+    }
     if (!reducedMotion.matches) window.requestAnimationFrame(animateGalaxy);
   };
 
@@ -404,6 +407,8 @@ if (f1Game) {
     rivals: [],
     collisionCooldown: 0,
     lastFrame: 0,
+    frameAccumulator: 0,
+    hudUpdateTimer: 0,
     animationFrameId: null,
     roadPoints: []
   };
@@ -709,12 +714,22 @@ if (f1Game) {
       startButton.textContent = 'Correr de nuevo 🏁';
       raceMessage.textContent = `¡Bandera a cuadros en ${circuit.name}! ¡Qué gran carrera, Stella!`;
     }
-    updateRaceHud();
+    state.hudUpdateTimer += delta;
+    if (state.hudUpdateTimer >= 0.1 || !state.running) {
+      state.hudUpdateTimer = 0;
+      updateRaceHud();
+    }
   };
 
   const raceFrame = (timestamp) => {
-    const delta = Math.min((timestamp - state.lastFrame) / 1000, 0.05);
+    state.frameAccumulator += Math.max(0, timestamp - state.lastFrame);
     state.lastFrame = timestamp;
+    if (state.frameAccumulator < 1000 / 60) {
+      state.animationFrameId = window.requestAnimationFrame(raceFrame);
+      return;
+    }
+    const delta = Math.min(state.frameAccumulator / 1000, 0.05);
+    state.frameAccumulator %= 1000 / 60;
     updateRace(delta);
     drawScene();
     if (state.running) state.animationFrameId = window.requestAnimationFrame(raceFrame);
@@ -725,7 +740,7 @@ if (f1Game) {
     const bounds = canvas.getBoundingClientRect();
     state.width = bounds.width;
     state.height = bounds.height;
-    state.pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+    state.pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
     canvas.width = Math.round(state.width * state.pixelRatio);
     canvas.height = Math.round(state.height * state.pixelRatio);
     context.setTransform(state.pixelRatio, 0, 0, state.pixelRatio, 0, 0);
@@ -749,6 +764,8 @@ if (f1Game) {
     state.playerCrashMessageTimer = 0;
     state.overtakes = 0;
     state.collisionCooldown = 0;
+    state.frameAccumulator = 0;
+    state.hudUpdateTimer = 0;
     state.rivals = [
       makeRival(390, -0.55, rivalColors[0], 268),
       makeRival(540, -0.55, rivalColors[1], 236),
@@ -815,6 +832,7 @@ if (f1Game) {
 
     pauseButton.textContent = 'Pausar ⏸';
     state.lastFrame = performance.now();
+    state.frameAccumulator = 0;
     state.animationFrameId = window.requestAnimationFrame(raceFrame);
   });
 
