@@ -6,7 +6,7 @@ const galaxyContext = galaxy?.getContext('2d');
 
 if (galaxy && galaxyContext) {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const state = { width: 0, height: 0, pixelRatio: 1, yaw: -0.5, pitch: 0.35, dragging: false, lastX: 0, lastY: 0, lastAnimationFrame: 0 };
+  const state = { width: 0, height: 0, pixelRatio: 1, yaw: -0.5, pitch: 0.35, dragging: false, lastX: 0, lastY: 0, lastAnimationFrame: 0, animationFrameId: null };
   const randomBetween = (min, max) => min + Math.random() * (max - min);
   const stars = Array.from({ length: 720 }, () => {
     const radius = Math.sqrt(Math.random());
@@ -32,7 +32,7 @@ if (galaxy && galaxyContext) {
   const resizeGalaxy = () => {
     state.width = window.innerWidth;
     state.height = window.innerHeight;
-    state.pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+    state.pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
     galaxy.width = Math.round(state.width * state.pixelRatio);
     galaxy.height = Math.round(state.height * state.pixelRatio);
     galaxyContext.setTransform(state.pixelRatio, 0, 0, state.pixelRatio, 0, 0);
@@ -107,12 +107,16 @@ if (galaxy && galaxyContext) {
   };
 
   const animateGalaxy = (time) => {
+    if (document.hidden) {
+      state.animationFrameId = null;
+      return;
+    }
     if (time - state.lastAnimationFrame >= 1000 / 30) {
       state.lastAnimationFrame = time;
       if (!state.dragging && !reducedMotion.matches) state.yaw += 0.0007;
       drawGalaxy(time);
     }
-    if (!reducedMotion.matches) window.requestAnimationFrame(animateGalaxy);
+    if (!reducedMotion.matches) state.animationFrameId = window.requestAnimationFrame(animateGalaxy);
   };
 
   const stopDragging = () => {
@@ -145,8 +149,20 @@ if (galaxy && galaxyContext) {
   window.addEventListener('pointercancel', stopDragging);
   window.addEventListener('blur', stopDragging);
   window.addEventListener('resize', resizeGalaxy);
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      if (state.animationFrameId !== null) window.cancelAnimationFrame(state.animationFrameId);
+      state.animationFrameId = null;
+      return;
+    }
+    if (!reducedMotion.matches && state.animationFrameId === null) {
+      state.animationFrameId = window.requestAnimationFrame(animateGalaxy);
+    } else {
+      drawGalaxy();
+    }
+  });
   resizeGalaxy();
-  if (!reducedMotion.matches) window.requestAnimationFrame(animateGalaxy);
+  if (!reducedMotion.matches) state.animationFrameId = window.requestAnimationFrame(animateGalaxy);
 }
 
 const animalStage = document.querySelector('#animal-stage');
@@ -1199,10 +1215,16 @@ if (bookPages) {
 
   const pagesPerChapter = 200;
   const totalBookPages = chapters.length * pagesPerChapter;
-  const fragment = document.createDocumentFragment();
-  chapters.forEach((chapter, chapterIndex) => {
-    for (let pageIndex = 0; pageIndex < pagesPerChapter; pageIndex += 1) {
-      const pageNumber = chapterIndex * pagesPerChapter + pageIndex + 1;
+  const pageBatchSize = 24;
+  let renderedBookPages = 0;
+  const appendBookPages = () => {
+    const fragment = document.createDocumentFragment();
+    const nextPage = Math.min(totalBookPages, renderedBookPages + pageBatchSize);
+    for (; renderedBookPages < nextPage; renderedBookPages += 1) {
+      const pageNumber = renderedBookPages + 1;
+      const chapterIndex = Math.floor(renderedBookPages / pagesPerChapter);
+      const pageIndex = renderedBookPages % pagesPerChapter;
+      const chapter = chapters[chapterIndex];
       const page = document.createElement('article');
       page.className = 'book-page';
       page.setAttribute('aria-label', `Página ${pageNumber}: ${chapter.title}`);
@@ -1239,6 +1261,14 @@ if (bookPages) {
       page.appendChild(pageNumberLabel);
       fragment.appendChild(page);
     }
-  });
-  bookPages.appendChild(fragment);
+    bookPages.appendChild(fragment);
+  };
+  const appendPagesNearScrollEnd = () => {
+    const remainingScroll = bookPages.scrollHeight - bookPages.scrollTop - bookPages.clientHeight;
+    if (renderedBookPages < totalBookPages && remainingScroll < bookPages.clientHeight * 2) {
+      appendBookPages();
+    }
+  };
+  appendBookPages();
+  bookPages.addEventListener('scroll', appendPagesNearScrollEnd, { passive: true });
 }
